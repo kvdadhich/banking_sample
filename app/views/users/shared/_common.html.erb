@@ -1,0 +1,164 @@
+<div class="tab-content">
+  <p class="text-center p-4x">
+    <img src="/assets/logo/brand-text-color.png" alt="wrapkit" height="28px">
+  </p>
+  <div class="tab-pane fade <%='in active' if p_type=='session' %>" id="signin">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <p class="lead">Login to your account</p>
+      <div class="form-group">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-user"></i></span>
+          <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control'%>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-lock"></i></span>
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group clearfix">
+        <div class="animated-hue pull-right">
+           <%= f.submit "Sign In", class: 'btn btn-primary' %>
+        </div>
+
+          <% if devise_mapping.rememberable? -%>
+           <div class="nice-checkbox nice-checkbox-inline">
+              <%= f.check_box :remember_me%>
+              <label for="admin_remember_me">Keep me sign in</label>
+            </div>
+          <% end -%>
+
+      </div><!-- /.form-group -->
+
+      <hr>
+
+      <p><a href="#recoverAccount" data-toggle="modal">Can't Access your Account?</a></p>
+       
+      <!-- Disable Admin Registration in Dev  -->
+      <hr>
+      <p>Don't have a account? <a href="#signup" data-toggle="tab">Creata one</a></p>
+    
+    <% end %><!-- /#signinForm -->
+  </div><!-- /.tab-pane -->
+
+  <!-- Disable Admin Registration in Dev  -->
+  <div class="tab-pane fade <%='in active' if p_type=='registrations' %>" id="signup">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+       <% if devise_error_messages! !='' %>  
+            <div class="alert alert-danger">
+              <a href="#" data-dismiss="alert" class="close">×</a>
+              <%= devise_error_messages! %>
+            </div>
+          <%end%>
+
+      <p class="lead">Create a new account</p>
+      <p class="text-muted"><strong>Enter your personal data</strong></p>
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-tag"></i></span>
+           <%= f.text_field :fname, autofocus: true, placeholder: 'First Name', class: 'form-control' %>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-tag"></i></span>
+           <%= f.text_field :lname, autofocus: true, placeholder: 'Last Name', class: 'form-control' %>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-tag"></i></span>
+          <%= f.text_field :address, autofocus: true, placeholder: 'Address', class: 'form-control'%>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+          <%= f.text_field :mobile_no, autofocus: true, placeholder: 'Mobile Number', class: 'form-control'%>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <hr>
+
+      <p class="text-muted"><strong>Enter your account data</strong></p>
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+          <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control'%>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-key"></i></span>
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group has-feedback">
+        <div class="input-group input-group-in">
+          <span class="input-group-addon"><i class="icon-check"></i></span>
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+          <span class="form-control-feedback"></span>
+        </div>
+      </div><!-- /.form-group -->
+      <div class="form-group animated-hue clearfix">
+        <div class="pull-right">
+          <%= f.submit "Create account", class: 'btn btn-primary' %>
+        </div>
+        <div class="pull-left">
+          <a href="#signin" class="btn btn-default" data-toggle="tab">Sign In</a>
+        </div>
+      </div><!-- /.form-group -->
+    <% end %><!-- /#signupForm -->
+
+    <hr>
+
+    <p>By creating an account you agree to the <a href="javascript:void(0)">Terms of Use</a> and <a href="javascript:void(0)">Privacy Policy</a></p>
+</div><!-- /.tab-pane -->
+</div><!-- /.tab-content -->
+
+<!-- Modal Recover -->
+  <div class="modal fade" id="recoverAccount" tabindex="-1" role="dialog" aria-labelledby="recoverAccountLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+         <% if devise_error_messages!!='' %>  
+            <div class="alert alert-danger">
+              <a href="#" data-dismiss="alert" class="close">×</a>
+              <%= devise_error_messages! %>
+            </div>
+          <%end%>
+        
+          <div class="modal-header">
+            <h4 class="modal-title" id="recoverAccountLabel">Reset Password</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="input-group input-group-in">
+                <span class="input-group-addon"><i class="fa fa-envelope-o text-muted"></i></span>
+                <%= f.email_field :email, placeholder: 'Enter your email address', class: 'form-control' %>
+              </div>
+            </div><!-- /.form-group -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <%= f.submit "Send reset link", class: 'btn btn-primary' %>
+          </div>
+        <% end %><!-- /#recoverForm -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /#recoverAccount -->
+
+<%if(defined?(forget_pass))%>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#recoverAccount").modal('show')
+  })
+  </script>
+<%end%>

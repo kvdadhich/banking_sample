@@ -1,0 +1,18 @@
+<h1>Hello <%= "#{@transaction.user.fname} #{@transaction.user.lname}" %> Trasaction transaction_alert</h1>
+<br/>
+<br/>
+<p>
+  <% if transaction.trans_type == 1%>
+    A trasaction of <%= trasaction.amount %> has been made by you.
+  <% else %>
+    Your account has been credited with <%= trasaction.amount %>.
+  <% end %>
+  <br/>
+  <br/>
+  Your current Balance is <%= trasaction.user.balance %>.
+</p>
+<br/>
+<br/>
+
+Sicerely,
+Bank Limited

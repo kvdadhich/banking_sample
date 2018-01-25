@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bk_dev
+  pool: 5
+  username: postgres
+  password: root
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bk_test
+  pool: 5
+  username: postgres
+  password: root
+  host: localhost

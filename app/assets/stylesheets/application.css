@@ -1,0 +1,324 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require ./inner/bootstrap.css
+ *= require ./inner/dependencies.css
+ *= require ./inner/components.css
+ *= require ./inner/wrapkit.css
+ *= require ./inner/pages.css
+ *= require ./inner/daterangepicker.css
+ *= require ./inner/demo.css
+ *= require_self
+ */
+
+.alert {
+    margin-bottom: 0px;
+}
+.alert >ul > li a{
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+.alert >ul > li a:hover{
+    color: #fff !important;
+  
+}
+.alert h4 {
+    color: #fff !important;
+}
+.alert-error {
+    background-color: rgba(237,85,101,.26);
+    border-color: rgba(237,85,101,0.26);
+    color: #d9172b;
+    text-align: left;
+ }
+ 
+.alert-alert {
+    background-color: #FFBC58; 
+    border-color: #FFBC58;
+    color: #fff;
+    text-align: left;
+ }
+ .alert-m_permission {
+    background-color: #FFBC58; 
+    border-color: #FFBC58;
+    color: #fff;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    color: #fff;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+    color: #fff;
+    text-align: left;
+ }
+.alert-warning {
+    background-color: #FFBC58;
+    border-color: #FFBC58;
+    color: #fff;
+    text-align: left;
+ }
+.media-object{
+    width: 60px;
+    height: auto;
+}
+.ice-icon {
+    fill:#fff !important;
+    color:#fff;
+}
+#ex1Slider .slider-selection {
+    background: #BABABA;
+}
+.setting_form{
+    height: 350px;
+}
+/*.outbox-list-item {
+    border-bottom: 1px solid rgba(22,24,27,.12);
+}*/
+.support-paginate a.next_page:active, .support-paginate a.next_page:visited{
+    text-decoration: none;
+}
+.support-paginate .pagination a:hover {
+    text-decoration: none;
+}
+.support-paginate .pagination {
+    margin:8px 0;
+}
+.support-paginate a.next_page:hover{
+    text-decoration: none;
+}
+.slider-selection {
+    background: #48CFAD !important;
+}
+.slider-handle {
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
+    height: 23px;
+    opacity: 1;
+    transition: box-shadow 200ms ease-in-out 0s;
+    width: 23px;
+}
+.wlcm_text{
+    margin-top: 125px;
+    font-size: 50px !important;
+}
+.dropdown-menu .dd-body {
+    height: 250px !important;
+    overflow: auto;
+}
+.dd-body .media-list .media-object {
+    width: 32px;
+}
+.timeline-resume .selected {
+    background: rgba(47, 181, 147, 0.5);
+    z-index: 100;
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 28px;
+    /*margin-top: 1.5%;*/
+}
+
+#zoom_img img{
+    width: 100%;
+    max-height: 400px;
+}
+#zoom_img video{
+    width: 100%;
+    max-height: 400px;
+}
+#zoom_user_img {
+    /*width: 100%;*/
+    /*max-height: 400px;*/
+    text-align: center;
+}
+#zoom_user_img video{
+    width: 100%;
+    max-height: 400px;
+}
+.importent_pin{
+    color: #F6D975;
+}
+.set_importent {
+    cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    .slider-value {
+        width: 37px;
+    }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .slider-value {
+        width: 60px;
+    }
+}
+.verified{
+    color: #2DECBC;
+}
+.verified:hover{
+    color: #2DECBC;
+}
+.model_close{
+    margin-top: -13px !important;
+}
+.panel .form-inline .form-control {
+  display: block;
+}
+
+.active-item-shadow {
+  -webkit-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+  -moz-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+  box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+}
+
+.bg_c{
+    background-color: #15BAA6 !important;
+}
+.bg_f{
+    background-color: #2DA2DB !important;
+}
+.bg_s{
+    background-color: #80479B !important;
+}
+.bg_r{
+    background-color: #868089 !important;
+}
+.tooltip-inner {
+  white-space:nowrap;
+  max-width:none;
+}
+
+.embed-responsive-16by9{padding-bottom:20%}
+.embed-responsive-media{padding-bottom:100%}
+
+.kit-avatar.user-img-circle {
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+}
+.kit-avatar.user-img-circle img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+}
+h3.subhead {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.well{
+    margin-bottom: 0px !important;
+}
+
+.well p{
+    margin-bottom: 20px !important;
+}
+
+.dotted-c{
+    background-color: #15BAA6 !important;
+}
+.dotted-f{
+    background-color: #2DA2DB !important;
+}
+.dotted-s{
+    background-color: #80479B !important;
+}
+.show_chat{
+    margin-right: 10px;
+
+}
+#chat_messages{
+    max-height: 500px;
+    overflow: auto;
+}
+.flag_panel{
+    min-height: 240px;
+}
+.btn-pink{
+    color: rgba(22,24,27,.87);
+    background-color: #FC96D3;
+    border-color: transparent;
+}
+.btn-pink.active{
+    color:rgba(22,24,27,.87);
+    background-color:#C574A5;
+    border-color:transparent;
+}
+
+.coupon_city {
+    max-height: 400px;
+    overflow: auto;
+}
+.hover-yellow:hover,.text-yellow
+{
+    color:#80479B!important
+}
+.hover-teal:hover,.text-teal
+{
+    color:#2DA2DB!important
+}
+.mb-five{
+    margin-bottom: 5px; 
+    display: inline-block;
+    font-size: 12px;
+}
+
+.embed-badge.embed-badge-right {
+    right: 15px;
+}
+
+.social_link{
+    text-decoration: none !important;
+    color: rgba(22,24,27,.87) !important;
+}
+
+
+@media (min-width: 319px) and (max-width: 748px) {
+  .profile_btns {
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+  }
+  .profile_detail {
+    padding-top:13%;
+  }
+}
+
+.form-inline .slider-form-group {
+    display: block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    width: 300px;
+    float: left;
+}
+
+.active_sort a{
+    color: #48CFAD !important;
+}
+
+.sort_class a{
+    color: rgba(22,24,27,.54);;
+}
+
+/*.slider-form-group .slider.slider-horizontal {
+    width: 30% !important;
+    height: 20px;
+}*/

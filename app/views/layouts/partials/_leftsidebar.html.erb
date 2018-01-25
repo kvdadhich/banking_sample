@@ -1,0 +1,47 @@
+<!-- ============================================
+SIDEBAR SECTION
+===============================================  -->
+<aside class="sidebar" role="complementary">
+
+  <!-- profile -->
+  <div class="sidebar-block">
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading"><%=current_user.fname%> <%=current_user.lname%></h4>
+      </div>
+    </div>
+  </div><!-- /.sidebar-block -->
+  <!-- /profile -->
+
+  <!-- /navigation -->
+  <div class="nav-wrapper">
+    <ul class="nav nav-stacked" role="navigation">
+      <%if current_user.is_admin == 1%>
+        <li class="nav-item <%= 'active' if (current_page?('/manager/transaction_histories')) %>" role="presentation">
+          <a href="/manager/transaction_histories" >
+            <span class="nav-icon"><i class="fa fa-dashboard"></i></span>
+            <span class="nav-text">Manager Transaction History</span>
+          </a>
+        </li>
+      <%end%>
+      <li class="nav-item <%= 'active' if (current_page?('/transaction_histories')) %>" role="presentation">
+        <a href="/transaction_histories" >
+          <span class="nav-icon"><i class="fa fa-dashboard"></i></span>
+          <span class="nav-text">Transaction History List</span>
+        </a>
+      </li>
+      <li class="nav-item <%= 'active' if (current_page?('/transaction_histories/new?trans_type=2')) %>" role="presentation">
+        <a href="/transaction_histories/new?trans_type=2">
+          <span class="nav-icon"><i class="fa fa-dashboard"></i></span>
+          <span class="nav-text">Credit Amount</span>
+        </a>
+      </li>
+      <li class="nav-item <%= 'active' if (current_page?('/transaction_histories/new?trans_type=1')) %>" role="presentation">
+        <a href="/transaction_histories/new?trans_type=1">
+          <span class="nav-icon"><i class="fa fa-dashboard"></i></span>
+          <span class="nav-text">Debit Amount</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside><!-- /.SIDEBAR

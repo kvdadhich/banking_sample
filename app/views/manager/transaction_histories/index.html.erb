@@ -1,0 +1,75 @@
+
+
+<div class="content">
+  <div class="col-md-12">
+    <h3 class="pull-left">Transaction History</h3>
+    <h3 class="text-right">
+      <a href="<%=request.path%>.xls?<%=request.query_string%>" class="label label-info"><span class="fa fa-file-excel-o"></span> Export Excel</a>
+    </h3>
+    <div class="clearfix"></div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-inline" action="" method="get">
+              <div class="form-group">
+                <label for="search-type">Type</label>
+                <select name="type" class="form-control">
+                  <option value="" <%='selected="selected"' if params[:type].nil?%>>All</option>
+                  <option value="1" <%='selected="selected"' if params[:type] == '2'%>>Credit</option>
+                  <option value="0" <%='selected="selected"' if params[:type] == '1'%>>Debit</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user_name"> User Name</label>
+                <input type="text" name="user" class="form-control" value="<%=params[:user]%>" placeholder="User Name">
+              </div>
+              <div class="form-group">
+                <label for="user_name"> Date</label>
+                <input type="text" name="date_range" class="daterangepicker1 form-control " value="<%=params[:date_range]%>" placeholder="Date">
+              </div>
+              <div class="form-group">
+                <label></label><br>
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> Search</button>
+              </div>
+              <%if params.has_key?(:query)%>
+                <div class="form-group">
+                  <label></label><br>
+                  <a href="/coupons" class="btn btn-info"><span class="fa fa-list"></span> Show All</a>
+                </div>                
+              <%end%>
+            </form>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Transaction Type</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @transaction_histories.each_with_index do |t, i| %>
+                <tr>
+                  <td><%=i+1%> </td>
+                  <td><%= t.amount %></td>
+                  <td><%= t.desc %></td>
+                  <td><%= transaction_type(t.trans_type)%></td>
+                  <td><%= dateFormet(t.created_at)%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>   
+        </div>
+        <div class="text-center">
+          <%= will_paginate @transaction_histories, renderer: BootstrapPagination::Rails, class:  "pagination pagination-sm" %>
+        </div><!-- /pagination -->
+      </div>
+    </div>
+  </div><!-- /.cols -->
+</div>

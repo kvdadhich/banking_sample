@@ -1,0 +1,40 @@
+
+
+<div class="content">
+  <div class="col-md-12">
+    <h3 class="pull-left">Transaction History</h3>
+    <div class="clearfix"></div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Transaction Type</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @transaction_histories.each_with_index do |t, i| %>
+                <tr>
+                  <td><%=i+1%> </td>
+                  <td><%= t.amount %></td>
+                  <td><%= t.desc %></td>
+                  <td><%= transaction_type(t.trans_type)%></td>
+                  <td><%= dateFormet(t.created_at)%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>   
+        </div>
+        <div class="text-center">
+          <%= will_paginate @transaction_histories, renderer: BootstrapPagination::Rails, class:  "pagination pagination-sm" %>
+        </div><!-- /pagination -->
+      </div>
+    </div>
+  </div><!-- /.cols -->
+</div>
